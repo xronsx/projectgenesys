@@ -45,23 +45,23 @@
     </div>
     <div class="col-sm-8">
         <div class="title-action">
-            <a href="#" class="btn btn-primary">Por Definir</a>
+            <strong>Last connection:</strong> <br>{{user.last_login|date:"D d M Y"}} At {{user.last_login|time:"g:iA"}}
         </div>
     </div>
 </div>
 {% endblock contenido_header %}
 
-{% block contenido %}
+    {% block contenido %}
 
-{% if request.user|has_group:"Administrador" %}
+    {% if request.user|has_group:"Administrador" %}
 
+        
 
+    {% elif user|has_group:"Colector" %}
 
-{% elif user|has_group:"Colector" %}
+        Colector
 
-OK
-
-{% endif %}
+    {% endif %}
 
 {% endblock contenido %}
 
@@ -296,4 +296,4 @@ OK
 
     }
 </style>
-    {% endblock script %}
+{% endblock script %}
