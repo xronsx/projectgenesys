@@ -9,4 +9,4 @@ $RECYCLE.BIN/
 /myproject/settings.py
 inicio/static/
 static/
-#db.sqlite3
+db.sqlite3
