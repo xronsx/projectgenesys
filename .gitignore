@@ -11,4 +11,4 @@ inicio/static/
 static/
 media/
 !media/profiles/no_image.png
-db.sqlite3
+#db.sqlite3
