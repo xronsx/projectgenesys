@@ -36,11 +36,11 @@
         <h2>Escritorio</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="{% url 'home' %}">Home</a>
+                <a class="active" href="{% url 'home' %}"><strong>Home</strong></a>
             </li>
-            <li class="active">
+<!--             <li class="active">
                 <strong>Principal</strong>
-            </li>
+            </li> -->
         </ol>
     </div>
     <div class="col-sm-8">
@@ -64,15 +64,6 @@
     {% endif %}
 
 {% endblock contenido %}
-
-{% block opciones_menu %}
-<li>
-    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Opciones</span> <span class="fa arrow"></span></a>
-    <ul class="nav nav-second-level">
-        <li><a href="#">Por Definir</a></li>
-    </ul>
-</li>
-{% endblock opciones_menu %}
 
 {% block script %}
 

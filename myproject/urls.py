@@ -18,16 +18,22 @@ from django.contrib import admin
 from inicio import views as inicio_views
 from django.conf.urls.static import static
 from django.conf import settings
+from empleados import views as empleados_views
 
 # urls de app inicio
 extra_patterns1 = [
     url(r'^login', inicio_views.login_view, name = 'login'),
     url(r'^logout/$', inicio_views.login_out, name = 'logout'),
     url(r'^home/$', inicio_views.home, name = 'home'),
+]
 
+# urls de app empleados
+extra_patterns2 = [
+    url(r'^nuevo_empleado', empleados_views.nuevo_empleado, name = 'nuevo_empleado'),
 ]
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(extra_patterns1)),
+    url(r'^', include(extra_patterns2)),
 ]

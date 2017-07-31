@@ -1,0 +1,346 @@
+{% extends 'tags/index.html' %}
+{% load staticfiles %}
+{% load querys %}
+
+{% block head %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Genesys | Dashboard</title>
+
+    <link rel="icon" type="image/png" href="{% static 'img/logo_ico.png' %}" />
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="{% static 'js/plugins/gritter/jquery.gritter.css' %}" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="{% static 'css/plugins/dataTables/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/plugins/dataTables/dataTables.responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/plugins/dataTables/dataTables.tableTools.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+{% endblock head %}
+
+{% block opciones_menu %}
+    {% if request.user|has_group:"Administrador" %}
+        <li>
+            <a href="admin.html"><i class="fa fa-th-large"></i> <span class="nav-label">Call Queue</span> <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+               <li><a href="#">Assign Queue</a></li>
+                <li><a href="#">Assign Collectors</a></li>
+                <li><a href="#">Review Queue</a></li>
+                <li><a href="#">Collector Assigment Deteal </a></li>
+            </ul>
+        </li>
+         <li class="active">
+           <a href="new_employee.html"><i class="fa fa-group"></i> <span class="nav-label">Employee</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li class="active"><a href="#">New Employee</a></li>
+                <li><a href="#">Edit/Delete Employee</a></li>
+                <li><a href="#">Profile Employee</a></li>
+            </ul>
+        </li>
+         <li>
+            <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">CRS</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="#">Commission Report</a></li>
+                <li><a href="#">Collections by Date</a></li>
+                <li><a href="#">Commissions Detail</a></li>
+                <li><a href="#">Past Due Report</a></li>
+                <li><a href="#">Clients Commission</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-globe"></i> <span class="nav-label">Client </span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="#">New Client</a></li>
+                <li><a href="#">Edit/Delete Client</a></li>
+                <li><a href="#">Search Clients</a></li>
+                <li><a href="#">Historic of Clients</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Post Dates</span><span class="label label-warning pull-right">16/24</span> </a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Promise to Pay</span> </a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Legal Queue</span> </a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Legal</span> <span class="label label-primary pull-right">NEW</span></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Historial</span></a>
+        </li>
+    {% endif %}
+{% endblock opciones_menu %}
+
+{% block contenido_header %}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2><strong>Module:</strong> Employee</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="active">
+                <strong>Registrar Nuevo Empleado</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <strong>Last connection:</strong> <br>{{user.last_login|date:"D d M Y"}} At {{user.last_login|time:"g:iA"}}
+        </div>
+    </div>
+</div>
+{% endblock contenido_header %}
+
+{% block contenido %}
+
+    {% if request.user|has_group:"Administrador" %}
+
+        Nuevo empleado
+
+    {% elif user|has_group:"Colector" %}
+
+        Colector
+
+    {% endif %}
+
+{% endblock contenido %}
+
+{% block script %}
+
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jeditable/jquery.jeditable.js' %}"></script>
+
+    <!-- Flot -->
+    <script src="{% static 'js/plugins/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.spline.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.pie.js' %}"></script>
+
+    <!-- Peity -->
+    <script src="{% static 'js/plugins/peity/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'js/demo/peity-demo.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+
+    <!-- jQuery UI -->
+    <script src="{% static 'js/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <!-- GITTER -->
+    <script src="{% static 'js/plugins/gritter/jquery.gritter.min.js' %}"></script>
+
+    <!-- Sparkline -->
+    <script src="{% static 'js/plugins/sparkline/jquery.sparkline.min.js' %}"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="{% static 'js/demo/sparkline-demo.js' %}"></script>
+
+    <!-- ChartJS-->
+    <script src="{% static 'js/plugins/chartJs/Chart.min.js' %}"></script>
+
+    <!-- Toastr -->
+    <script src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
+
+    <!-- Data Tables -->
+    <script src="{% static 'js/plugins/dataTables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.responsive.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.tableTools.min.js' %}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.success('Genesys 2.0 | National Recovery', 'Bienvenido {{user.username}}');
+
+            }, 1300);
+
+            $('.dataTables-example').dataTable({
+                responsive: true,
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "{% static 'js/plugins/dataTables/swf/copy_csv_xls_pdf.swf' %}"
+                }
+            });
+
+
+            var data1 = [
+                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
+            ];
+            var data2 = [
+                [0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
+            ];
+            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+                data1, data2
+            ],
+                    {
+                        series: {
+                            lines: {
+                                show: false,
+                                fill: true
+                            },
+                            splines: {
+                                show: true,
+                                tension: 0.4,
+                                lineWidth: 1,
+                                fill: 0.4
+                            },
+                            points: {
+                                radius: 0,
+                                show: true
+                            },
+                            shadowSize: 2
+                        },
+                        grid: {
+                            hoverable: true,
+                            clickable: true,
+                            tickColor: "#d5d5d5",
+                            borderWidth: 1,
+                            color: '#d5d5d5'
+                        },
+                        colors: ["#1ab394", "#464f88"],
+                        xaxis:{
+                        },
+                        yaxis: {
+                            ticks: 4
+                        },
+                        tooltip: false
+                    }
+            );
+
+            var doughnutData = [
+                {
+                    value: 300,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "App"
+                },
+                {
+                    value: 50,
+                    color: "#dedede",
+                    highlight: "#1ab394",
+                    label: "Software"
+                },
+                {
+                    value: 100,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Laptop"
+                }
+            ];
+
+            var doughnutOptions = {
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                percentageInnerCutout: 45, // This is 0 for Pie charts
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+            };
+
+            var ctx = document.getElementById("doughnutChart").getContext("2d");
+            var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
+
+            var polarData = [
+                {
+                    value: 300,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "App"
+                },
+                {
+                    value: 140,
+                    color: "#dedede",
+                    highlight: "#1ab394",
+                    label: "Software"
+                },
+                {
+                    value: 200,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Laptop"
+                }
+            ];
+
+            var polarOptions = {
+                scaleShowLabelBackdrop: true,
+                scaleBackdropColor: "rgba(255,255,255,0.75)",
+                scaleBeginAtZero: true,
+                scaleBackdropPaddingY: 1,
+                scaleBackdropPaddingX: 1,
+                scaleShowLine: true,
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+            };
+            var ctx = document.getElementById("polarChart").getContext("2d");
+            var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
+
+        });
+    </script>
+
+    <style>
+    body.DTTT_Print {
+        background: #fff;
+
+    }
+    .DTTT_Print #page-wrapper {
+        margin: 0;
+        background:#fff;
+    }
+
+    button.DTTT_button, div.DTTT_button, a.DTTT_button {
+        border: 1px solid #e7eaec;
+        background: #fff;
+        color: #676a6c;
+        box-shadow: none;
+        padding: 6px 8px;
+    }
+    button.DTTT_button:hover, div.DTTT_button:hover, a.DTTT_button:hover {
+        border: 1px solid #d2d2d2;
+        background: #fff;
+        color: #676a6c;
+        box-shadow: none;
+        padding: 6px 8px;
+    }
+
+    .dataTables_filter label {
+        margin-right: 5px;
+
+    }
+</style>
+{% endblock script %}
