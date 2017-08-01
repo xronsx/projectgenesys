@@ -11,6 +11,10 @@ inicio/static/
 static/
 media/
 !media/profiles/no_image.png
-#db.sqlite3
-migrations/
-_pycahe_/
+db.sqlite3
+inicio/migrations/
+empleados/migrations/
+empleados/__pycache__/
+inicio/__pycache__/
+myproject/__pycache__/
+/inicio/templatetags/__pycache__/
