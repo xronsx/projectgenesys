@@ -9,6 +9,8 @@ $RECYCLE.BIN/
 /myproject/settings.py
 inicio/static/
 static/
-#media/
-#!media/profiles/no_image.png
+media/
+!media/profiles/no_image.png
 #db.sqlite3
+migrations/
+_pycahe_/

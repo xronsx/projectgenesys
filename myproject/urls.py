@@ -30,6 +30,7 @@ extra_patterns1 = [
 # urls de app empleados
 extra_patterns2 = [
     url(r'^nuevo_empleado', empleados_views.nuevo_empleado, name = 'nuevo_empleado'),
+    url(r'^profiles', empleados_views.profiles, name = 'profiles'),
 ]
 
 urlpatterns = [
