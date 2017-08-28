@@ -52,8 +52,8 @@
            <a href="new_employee.html"><i class="fa fa-group"></i> <span class="nav-label">Employee</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li><a href="{% url 'nuevo_empleado' %}">New Employee</a></li>
-                <li><a href="#">Edit/Delete Employee</a></li>
-                <li class="active" ><a href="#">Profile Employee</a></li>
+                <li class="active"><a href="#">Edit/Delete Employee</a></li>
+                <li><a href="{% url 'profiles' %}">Profile Employee</a></li>
             </ul>
         </li>
          <li>
@@ -102,7 +102,7 @@
                 <a href="{% url 'home' %}">Home</a>
             </li>
             <li class="active">
-                <strong>Profiles</strong>
+                <strong>Profile:</strong> {{persona.user.first_name}} {{persona.user.last_name}}
             </li>
         </ol>
     </div>
@@ -118,42 +118,86 @@
 
     {% if user|has_group:"Administrador" %}
 
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            {%for persona in empleados%}
-            <div class="col-lg-4">
-                <div class="contact-box">
-                    <a href="{% url 'profile' id_emp=persona.user.id %}">
-                    <div class="col-sm-4">
-                        <div class="text-center">
-                            <img alt="image" class="img-circle m-t-xs img-responsive" src="{{persona.foto.url}}">
-                            {% if persona.user|has_group:"Administrador" %}
-                            <div class="m-t-xs font-bold">Admin</div>
-                            {% else %}
-                            <div class="m-t-xs font-bold">Colector</div>
-                            {% endif %}
-                            <div style="background-color:{{persona.color}}">
-                            <br>
+        <div class="wrapper wrapper-content">
+            <div class="row animated fadeInRight">
+                <div class="col-md-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Profile Detail</h5>
+                        </div>
+                        <div>
+                            <div class="ibox-content">
+                                <center>
+                                {% if persona.user|has_group:"Administrador" %}
+                                <div class="m-t-xs font-bold">Administrador</div>
+                                {% else %}
+                                <div class="m-t-xs font-bold">Colector</div>
+                                {% endif %}
+                                </center>
+                                <br>
+                                <img alt="image" class="img-responsive" src="{{persona.foto.url}}">
+                                <div style="background-color:{{persona.color}}">
+                                    <center>
+
+                                        <font color="white"><strong>COLOR</strong></font>
+
+                                    </center>
+                                </div>
                             </div>
+                            <div class="ibox-content profile-content">
+                                <h4><strong>{{persona.user.first_name}} {{persona.user.last_name}}</strong></h4><hr>
+                                <strong><i class="fa fa-star"></i> Alias: </strong>{{persona.user.username}}<br><br>
+                                <strong><i class="fa fa-phone"></i> Tlf: </strong> {{persona.tlf}}<br><br>
+                                <strong><i class="fa fa-envelope"></i> Email </strong>{{persona.user.email}}<br><br>
+                                <strong><i class="fa fa-credit-card"></i> Cédula: </strong>{{persona.cedula}}<br><br>
+                                <strong><i class="fa fa-calendar"></i> Fecha Admisión: </strong>{{persona.fecha_admision}}<br><br>
+                                <strong><i class="fa fa-map-marker"></i> Dirección: </strong><br><br>
+                                <p>
+                                    {{persona.direccion}}
+                                </p>    
+                                <div class="row m-t-lg">
+                                <center>
+                                    <div class="col-md-4">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                                        <h5><strong>169</strong> Posts</h5>
+                                    </div>
+                                    <div class="col-md-4">
+
+                                    </div>
+                                </center>
+                                </div>
+                                <div class="user-button">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-danger  btn-sm btn-block"><i class="fa fa-coffee"></i> Editar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                    </div>
+                <div class="col-md-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Activites</h5>
+                        </div>
+                        <div class="ibox-content">
+
+                        ESTA SECCIÓN SERÁ LLENADA CON DATOS DE LA GESTIÓN DEL EMPLEADO
 
                         </div>
                     </div>
-                    <div class="col-sm-8">
-                        <h3><strong>{{persona.user.first_name}} {{persona.user.last_name}}</strong></h3>
-                        <p><strong><i class="fa fa-star"></i> Alias:</strong> {{persona.user.username}}</p>
-                        <address>
-                            <strong><i class="fa fa-phone"></i> </strong> {{persona.tlf}}<br>
-                            <strong><i class="fa fa-envelope"></i> </strong>{{persona.user.email}}<br>                       
-                        </address>
-                        <a href="#" class="btn btn-block btn-outline btn-success"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                        </a>
+
                 </div>
             </div>
-            {%endfor%}
         </div>
-    </div>
 
     {% elif user|has_group:"Colector" %}
 

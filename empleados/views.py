@@ -56,8 +56,11 @@ def profiles(request, template_name = "empleados/profiles.html"):
 	# usuarios = Empleado.objects.all().exclude(username = 'admin')
 	usuarios = User.objects.all().exclude(username = 'admin')
 	empleados = Empleado.objects.all()
-	print(usuarios)
-	print(empleados)
-	for data in empleados:
-		print(data.foto.url)
+	return render(request, template_name, locals(),)
+
+@login_required(login_url = '/login/')
+def profile(request, id_emp, template_name = "empleados/profile.html"):
+	usuario = User.objects.get(pk = id_emp)
+	persona = Empleado.objects.get(user = usuario)
+	print(persona)
 	return render(request, template_name, locals(),)

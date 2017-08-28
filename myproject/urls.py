@@ -25,16 +25,17 @@ extra_patterns1 = [
     url(r'^login', inicio_views.login_view, name = 'login'),
     url(r'^logout/$', inicio_views.login_out, name = 'logout'),
     url(r'^home/$', inicio_views.home, name = 'home'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # urls de app empleados
 extra_patterns2 = [
     url(r'^nuevo_empleado', empleados_views.nuevo_empleado, name = 'nuevo_empleado'),
     url(r'^profiles', empleados_views.profiles, name = 'profiles'),
-]
+    url(r'^profile/(?P<id_emp>[-A-Za-z0-9_]+)$', empleados_views.profile, name = 'profile'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(extra_patterns1)),
     url(r'^', include(extra_patterns2)),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

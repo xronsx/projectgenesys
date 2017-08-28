@@ -55,8 +55,170 @@
 
     {% if request.user|has_group:"Administrador" %}
 
-        
+          <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Call Queue</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
 
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Queue Name</th>
+                                <th>Collector</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                               
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                             
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                             
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                             
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>                     
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                        <center>
+                         <h3 class="font-bold"></h3>
+                            <p>
+                            <a href="">
+                             <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Assing Queue</button>
+                            </a>           
+                             <button class="btn btn-success " type="button"><i class="fa fa-eraser"></i>&nbsp;&nbsp;<span class="bold">Clean</span></button>
+                            </p>
+                            </center>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Search Debtot </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                   
+                    <div class="ibox-content">
+                            <form class="form-horizontal m-t-md" action="#">
+                                <div class="form-group"><label class="col-sm-2 control-label">Account Number</label>
+                                    <div class="col-sm-6"><input type="text" class="form-control">
+                                    </div>                                 
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">                               
+                                    </div>  
+                                    <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>                              
+                                 </div>
+                                </div>
+                             
+                               <div class="hr-line-dashed">
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">First Name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control">
+                                   </div>
+                                </div>                               
+                                <div class="form-group"><label class="col-sm-2 control-label">Thru First Name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control">
+                                   </div>
+                                </div>                           
+                                <div class="form-group"><label class="col-sm-2 control-label">Last Name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control">
+                                   </div>
+                                </div>
+                                                              
+                                 <div class="form-group"><label class="col-sm-2 control-label">Thru Last Name</label>                 
+                                   <div class="col-sm-6"><input type="text" class="form-control">
+                                    
+                                   </div> 
+                                   <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>
+                                 </div>                                                              
+                                
+
+                                <div class="hr-line-dashed">
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">SSN</label>
+                                    <div class="col-sm-6"><input type="text" class="form-control">
+                                    </div>
+                                    <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>
+                                </div>
+
+                                 <div class="hr-line-dashed">
+                                </div>
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Phone</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" data-mask="(9999) 999-9999" placeholder="">
+                                        <span class="help-block">(9999) 999-9999</span>
+                                    </div>
+                                  <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>
+                                     </div>
+                                     <div class="hr-line-dashed">
+                                </div>
+                                <center>
+                                <a href="">
+                                <button class="btn btn-primary " type="button"><i class="fa fa-table"></i>&nbsp;SnapShot</button></center>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
     {% elif user|has_group:"Colector" %}
 
         Colector
