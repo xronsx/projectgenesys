@@ -51,8 +51,8 @@
          <li class="active">
            <a href="new_employee.html"><i class="fa fa-group"></i> <span class="nav-label">Employee</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
-                <li><a href="{% url 'nuevo_empleado' %}">New Employee</a></li>
-                <li class="active" ><a href="#">Profile Employee</a></li>
+                <li class="active"><a href="{% url 'nuevo_empleado' %}">New Employee</a></li>
+                <li><a href="{% url 'profiles'%}">Profile Employee</a></li>
             </ul>
         </li>
          <li>
@@ -101,7 +101,7 @@
                 <a href="{% url 'home' %}">Home</a>
             </li>
             <li class="active">
-                <strong>Profiles</strong>
+                <strong>Editar Empleado</strong>
             </li>
         </ol>
     </div>
@@ -115,44 +115,200 @@
 
 {% block contenido %}
 
-    {% if user|has_group:"Administrador" %}
+    {%if form.username.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Alias: </strong> {{ form.username.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.email.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Email: </strong> {{ form.email.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.password.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Contraseña: </strong> {{ form.password.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.nombre.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Nombre: </strong> {{ form.nombre.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.apellido.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Apellido: </strong> {{ form.apellido.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.grupo.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Grupo: </strong> {{ form.grupo.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.direccion.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Dirección: </strong> {{ form.direccion.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.tlf.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Teléfono: </strong> {{ form.tlf.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.color.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Color: </strong> {{ form.color.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.foto.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Foto: </strong> {{ form.foto.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if form.fecha.errors%}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Fecha: </strong> {{ form.fecha.errors.as_text }}.
+    </div>
+    {%endif%}
+    {%if error %}
+    <div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Usuario: </strong> ya existe
+    </div>
+    {%endif%}
+    {%if exito %}
+    <div class="alert alert-dismissable alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>El usuario ha sido modificado correctamente </strong>
+    </div>
+    {%endif%}
+
+{% if request.user|has_group:"Administrador" %}
+<form class="form-horizontal" method="post" action="{% url 'editar_empleado' id_emp=persona.user.id %}" enctype="multipart/form-data">
+{% csrf_token %}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            {%for persona in empleados%}
-            <div class="col-lg-4">
-                <div class="contact-box">
-                    <a href="{% url 'profile' id_emp=persona.user.id %}">
-                    <div class="col-sm-4">
-                        <div class="text-center">
-                            <img alt="image" class="img-circle m-t-xs img-responsive" src="{{persona.foto.url}}">
-                            {% if persona.user|has_group:"Administrador" %}
-                            <div class="m-t-xs font-bold">Admin</div>
-                            {% else %}
-                            <div class="m-t-xs font-bold">Colector</div>
-                            {% endif %}
-                            <div style="background-color:{{persona.color}}">
-                            <br>
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title ">
+                        <h5>Enter Employee Data</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="image-crop">
+                                    <img src="{{persona.foto.url}}">
+                                </div>
                             </div>
-
+                            <div class="col-md-6">
+                                {{ form.foto }}
+                                <br>
+                                <div class="form-group">   
+                                    <div class="col-sm-12">
+                                        {{form.color}}
+                                    </div>  
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">First Name</label>
+                                    <div class="col-sm-8">
+                                        {{form.nombre}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Last Name</label>
+                                    <div class="col-sm-8">
+                                        {{form.apellido}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Alias</label>
+                                    <div class="col-sm-8">
+                                        {{form.username}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Contraseña</label>
+                                    <div class="col-sm-8">
+                                        {{form.password}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Cd. id</label>
+                                    <div class="col-sm-8">
+                                        {{form.cedula}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Grupo</label>
+                                    <div class="col-sm-8">
+                                        {{form.grupo}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label">Phone</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group m-b">
+                                        {{form.tlf}}
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group m-b">
+                                            {{form.email}}
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="data_1">
+                                <label class="col-sm-3 control-label">Date of admition</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group date">
+                                        {{form.fecha}}        
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Address</label>
+                                    <div class="col-sm-8">
+                                        {{form.direccion}}
+                                    </div>
+                                </div>                   
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-8">
-                        <h3><strong>{{persona.user.first_name}} {{persona.user.last_name}}</strong></h3>
-                        <p><strong><i class="fa fa-star"></i> Alias:</strong> {{persona.user.username}}</p>
-                        <address>
-                            <strong><i class="fa fa-phone"></i> </strong> {{persona.tlf}}<br>
-                            <strong><i class="fa fa-envelope"></i> </strong>{{persona.user.email}}<br>                       
-                        </address>
-                        <a href="{% url 'editar_empleado' id_emp=persona.user.id %}" class="btn btn-block btn-outline btn-success"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                        </a>
                 </div>
-            </div>
-            {%endfor%}
+            </div>                                                   
         </div>
+        <center>
+            <div class="col-sm-4">
+            <a href="{% url 'profiles'%}" class="btn btn-block btn-outline btn-success"><i class="fa fa-eraser"></i> Profiles</a>
+            </div>
+            <div class="col-sm-4">
+            <a href="{% url 'home' %}" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban"></i> Cancel</a>  
+            </div>     
+            <div class="col-sm-4">
+            <button type="submit" class="btn btn-block btn-outline btn-primary"><i class="fa fa-save"></i> Editar</button>
+            </div>         
+        </center>
     </div>
+     
+</form>
 
     {% elif user|has_group:"Colector" %}
 
@@ -224,11 +380,6 @@
 
     <script>
         $(document).ready(function() {
-
-
-            $('.contact-box').each(function() {
-                animationHover(this, 'pulse');
-            });
 
             var $image = $(".image-crop > img")
             $($image).cropper({

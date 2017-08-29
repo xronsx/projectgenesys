@@ -52,7 +52,6 @@
            <a href="new_employee.html"><i class="fa fa-group"></i> <span class="nav-label">Employee</span><span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li><a href="{% url 'nuevo_empleado' %}">New Employee</a></li>
-                <li class="active"><a href="#">Edit/Delete Employee</a></li>
                 <li><a href="{% url 'profiles' %}">Profile Employee</a></li>
             </ul>
         </li>
@@ -175,7 +174,7 @@
                                             <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
                                         </div>
                                         <div class="col-md-6">
-                                            <button type="button" class="btn btn-danger  btn-sm btn-block"><i class="fa fa-coffee"></i> Editar</button>
+                                            <a href="{% url 'editar_empleado' id_emp=persona.user.id %}" class="btn btn-block btn-danger"><i class="fa fa-pencil-square-o"></i> Editar</a>
                                         </div>
                                     </div>
                                 </div>
