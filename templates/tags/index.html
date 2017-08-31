@@ -35,7 +35,7 @@
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
-                    {% block menu_lateral_header %}
+{% block menu_lateral_header %}
                     <li class="nav-header">
                         <div class="dropdown profile-element" align="center"> <span>
                             <img alt="image" src='{% static "img/genesyslogo.jpg" %}'/>
@@ -55,8 +55,8 @@
                             <img alt="image" src="{% static 'img/logo_ico.png' %}" width="38px" />
                         </div>
                     </li>
-                    {% endblock menu_lateral_header %}
-                    {% block opciones_menu %}
+{% endblock menu_lateral_header %}
+{% block opciones_menu %}
     {% if request.user|has_group:"Administrador" %}
         <li>
             <a href="admin.html"><i class="fa fa-th-large"></i> <span class="nav-label">Call Queue</span> <span class="fa arrow"></span></a>
@@ -108,8 +108,30 @@
         <li>
             <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Historial</span></a>
         </li>
+    {% elif request.user|has_group:"Colector" %}
+        <li>
+            <a href="{% url 'queue' %}"><i class="fa fa-files-o"></i> <span class="nav-label">My Queue</span> </a>
+        </li>
+            <li>
+            <a href="{% url 'snapshot' %}"><i class="fa fa-table"></i> <span class="nav-label">SnapShot</span> </a>
+        </li>
+       <li>
+            <a href="#"><i class="fa fa-link"></i> <span class="nav-label">Promise to Pay</span> </a>
+        </li>
+       <li>
+            <a href="#"><i class="fa fa-line-chart"></i> <span class="nav-label">Avances</span> </a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Libreta</span></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-calculator"></i> <span class="nav-label">Calculadora</span> </a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Legal Queue</span> </a>
+        </li>
     {% endif %}
-                {% endblock opciones_menu %}
+{% endblock opciones_menu %}
                 </ul>
                
             </div>

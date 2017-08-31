@@ -1,0 +1,1054 @@
+{% extends 'tags/index.html' %}
+{% load staticfiles %}
+{% load querys %}
+
+{% block head %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Genesys | Dashboard</title>
+
+    <link rel="icon" type="image/png" href="{% static 'img/logo_ico.png' %}" />
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="{% static 'js/plugins/gritter/jquery.gritter.css' %}" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="{% static 'css/plugins/dataTables/dataTables.bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/plugins/dataTables/dataTables.responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/plugins/dataTables/dataTables.tableTools.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+{% endblock head %}
+
+{% block contenido_header %}
+
+{% endblock contenido_header %}
+
+    {% block contenido %}
+
+    {% if request.user|has_group:"Administrador" %}
+    
+    {% elif user|has_group:"Colector" %}
+
+    <div class="sidebard-panel">  
+                
+                <h5>View Acount:<span class="label label-primary">5408261</span></h5>
+                <div class="feed-element">
+                  <div class="media-body">
+                        
+                       <div class="ibox-title">
+                           <h6><p>Genesys Payment History</p></h6>
+                              </div>
+                          <div class="ibox-content">
+                             <table class="table table-hover no-margins">
+                                   <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Pay Type</th>
+                                                <th>Amount</th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                 <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                            </tr>
+                                            <tr>
+                                                 <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                            </tr>
+                                            
+                                     </tbody>
+                                  </table>
+                              </div>
+                           </div>           
+                       </div>
+                       <div class="feed-element">
+                  <div class="media-body">
+                        
+                       <div class="ibox-title">
+                           <h6><p>Payment History</p></h6>
+                              </div>
+                          <div class="ibox-content">
+                             <table class="table table-hover no-margins">
+                                   <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Pay Type</th>
+                                                <th>Amount</th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                 <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                            </tr>
+                                            <tr>
+                                                 <td>2017/06/12</td>
+                                                <td> VA</td>
+                                                <td>$350,00</td>
+                                            </tr>
+                                            
+                                     </tbody>
+                                  </table>
+                              </div>
+                           </div>           
+                       </div>   
+                       <div class="feed-element">
+                       <div class="media-body">
+                        
+                       <div class="ibox-title">
+                           <h6><p>Promise to Pay</p></h6>
+                              </div>
+                          <div class="ibox-content">
+                             <table class="table table-hover no-margins">
+                                   <thead>
+                                            <tr>
+                                                <th>Commit Date</th>
+                                                <th>Due Date</th>
+                                                <th>Collector</th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td>2017/06/12</td>
+                                                <td>MILAGRO</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td>2017/06/12</td>
+                                                <td>MILAGRO</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td>2017/06/12</td>
+                                                <td>MILAGRO</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2017/06/12</td>
+                                                <td>2017/06/12</td>
+                                                <td>MILAGRO</td>
+                                            </tr>
+                                            
+                                     </tbody>
+                                  </table>
+                              </div>
+                           </div>           
+                       </div>
+                       <div class="feed-element">
+                       <div class="media-body">
+                        
+                       <div class="ibox-title">
+                           <h6><p>Alternate Inf Add New Acount</p></h6>
+                              </div>
+                          <div class="ibox-content">
+                             <table class="table table-hover no-margins">
+                                   <thead>
+                                            <tr>
+                                                <th>Frist Name</th>
+                                                <th>Last Name</th>
+                                                <th>Phone</th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                               <td><small></small></td>
+                                                <td></td>
+                                                <td></td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td><small></small></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><small></small></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><small></small></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            
+                                     </tbody>
+                                  </table>
+                              </div>
+                           </div>           
+                       </div>     
+           </div>    
+     
+                   
+
+     <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Account Informations Assigned to:<small class="m-l-sm">NAME COLLECTOR</small></h5>
+
+                        <div class="pull-right">
+                        <a href="{% url 'home' %}">
+                        <button type="button" class="btn btn-outline btn-primary">&nbsp;&nbsp;HOME&nbsp;&nbsp;</button></div>
+                        </a>
+                    </div>
+                    <div class="ibox-content">
+                        <form role="form" class="form-inline">
+                                     <div class="form-group"><label class="col-md-2 control-label">NAME</label>
+                                <div><input type="text" disabled="" placeholder="HCOA" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">CLUB</label>
+                                <div><input type="text" disabled="" placeholder="5408" class="form-control"></div>
+                                    </div>  
+                                     <div class="form-group"><label class="col-md-2 control-label">LOA</label>
+                                <div><input type="text" disabled="" placeholder="5408265" class="form-control"></div>
+                                    </div>                                                                  
+                        </form>
+                        
+                        
+                        </div> 
+                                  
+                    
+                </div>
+            </div>
+        </div>
+              
+           
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-content">
+                            <div class="m-l-sm"><h4>Client Informations</h4></div>
+                            <div class="panel-options">
+
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a data-toggle="tab" href="#tab-1">Client</a></li>
+                                    <li><a data-toggle="tab" href="#tab-2">Due</a></li>
+                                    <li><a data-toggle="tab" href="#tab-3">Payments</a></li>
+                                    <li><a data-toggle="tab" href="#tab-4">RESPONSIBLE PAYMTS</a></li>
+                               </ul>
+                            </div>
+                       
+
+                        <div class="panel-body">                       
+                            <div class="tab-content">                            
+                                <div id="tab-1" class="tab-pane active">
+
+                                <form role="form" class="form-inline">
+                                     <div class="form-group"><label class="col-md-2 control-label">MEMBER</label>
+                                <div><input type="text" disabled="" placeholder="265" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">FIRSTNAME</label>
+                                <div><input type="text" disabled="" placeholder="TEOFILA" class="form-control"></div>
+                                    </div>     
+                                    <div class="form-group"><label class="col-md-2 control-label">LASTNAME</label>
+                                <div ><input type="text" disabled="" placeholder="VALENZUELA MATEO" class="form-control"></div>
+                                    </div>                               
+                                   <div class="form-group"><label class="col-md-2 control-label">ADDRESS</label>
+                                <div><input type="text" disabled="" placeholder="CALLE14 B18, URB MAGNOLIA GALDE" class="form-control"></div>
+                                    </div>
+                                     <div class="form-group"><label class="col-md-2 control-label">STATE</label>
+                                <div><input type="text" disabled="" placeholder="PR" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">CITY</label>
+                                <div><input type="text" disabled="" placeholder="BAYAMON" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">ZIPCOD</label>
+                                <div><input type="text" disabled="" placeholder="959" class="form-control"></div>
+                                    </div>
+                                     <div class="form-group"><label class="col-md-2 control-label">PR</label>
+                                <div><input type="text" disabled="" placeholder="778" class="form-control"></div>
+                                    </div>
+                                   <div class="form-group"><label class="col-md-2 control-label">PHONEHOME</label>
+                                <div><input type="text" disabled="" placeholder="7879066514" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">PHONECELL</label>
+                                <div><input type="text" disabled="" placeholder="7879066514" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">PHONEWORK</label>
+                                <div><input type="text" disabled="" placeholder="7879066514" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-md-2 control-label">PHONEEMERGENCY</label>
+                                <div><input type="text" disabled="" placeholder="7879066514" class="form-control"></div>
+                                    </div>
+                                </form>
+                                </div>
+
+                                <div id="tab-2" class="tab-pane">
+                                   <form role="form" class="form-inline">
+                                     <div class="form-group"><label class="col-lg-2 control-label">PLACED</label>
+                                <div><input type="text" disabled=""disabled="" placeholder="2017-03-15" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-lg-2 control-label">MONTHLY</label>
+                                <div><input type="text" disabled="" placeholder="$2,456.90" class="form-control"></div>
+                                    </div>     
+                                    <div class="form-group"><label class="col-lg-2 control-label">LASTFEE</label>
+                                <div ><input type="text" disabled="" placeholder="$1,056.90"  class="form-control"></div>
+                                    </div>   
+                                    <div class="form-group"><label class="col-lg-2 control-label">PROM</label>
+                                <div><input type="text" disabled="" placeholder="2017-04-14" class="form-control"></div>
+                                    </div>                                   
+                                    <div class="form-group"><label class="col-lg-2 control-label">CONTRACT</label>
+                                <div ><input type="text" disabled="" placeholder="$" class="form-control"></div>
+                                    </div>                               
+                                </form>
+                                </div>
+                                    
+                                <div id="tab-3" class="tab-pane">
+                                <form role="form" class="form-inline">
+                                  <div class="form-group"><label class="col-lg-2 control-label">CLIENTBAL</label>
+                                <div ><input type="text" disabled=""disabled="" placeholder="$2,156.90" class="form-control"></div>
+                                    </div> 
+                                    <div class="form-group"><label class="col-lg-2 control-label">PAYALL</label>
+                                <div><input type="text" disabled="" placeholder="$3,156.90"class="form-control"></div>
+                                    </div>   
+                                     <div class="form-group"><label class="col-lg-2 control-label">NOWDUE</label>
+                                <div ><input type="text" disabled=""placeholder="$3,156.90" class="form-control"></div>
+                                    </div>                                   
+                                    <div class="form-group"><label class="col-lg-2 control-label">LASTPAY</label>
+                                <div><input type="text" disabled="" placeholder="2017/07/12" class="form-control"></div>
+                                    </div>   
+                                    <div class="form-group"><label class="col-lg-2 control-label">AMOUNT</label>
+                                <div><input type="text" disabled="" placeholder="$350,00" class="form-control"></div>
+                                    </div>                                                                    
+                                </form>
+                                </div>
+                                 <div id="tab-4" class="tab-pane">
+                                   <form role="form" class="form-inline">
+                                     <div class="form-group"><label class="col-lg-2 control-label">NAME</label>
+                                <div><input type="text" disabled="" placeholder="CAROL" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group"><label class="col-lg-2 control-label">FORMTOPAYMENTS</label>
+                                <div><input type="text" disabled="" placeholder="CREDY CART O ACCOUNT BANK" class="form-control"></div>
+                                    </div> 
+                                    <div class="form-group"><label class="col-lg-2 control-label">BANK</label>
+                                <div><input type="text" disabled="" placeholder="Number" class="form-control"></div>
+                                    </div>   
+                                    <div class="form-group"><label class="col-lg-2 control-label">TarjetaN</label>
+                                <div><input type="text" disabled="" placeholder="****2342" class="form-control"></div>
+                                    </div>                                                                    
+                                </form>
+                                </div>                                       
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+                
+            
+                 <div class="row">
+            <div class="col-lg-9">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>STATU:</h5><span class="label label-primary">210</span>                       
+                    </div>
+                    
+                    <div class="ibox-content">                      
+                         <form role="form" class="form-inline">                          
+                           <h6><center>  
+                               <div class="form-group"><label class="col-md-4 control-label">ASINGDAY</label>
+                             <div><input type="text" disabled="" placeholder="2016-12-15" class="form-control"></div>
+                             </div>
+                           <div class="form-group"><label class="col-md-4 control-label">EXPIRE</label>
+                             <div><input type="text" disabled="" placeholder="2017-12-15" class="form-control"></div>
+                             </div>                             
+                            </h6></center>                                                      
+                         </form>
+                            <div class="row">
+                             <form role="form" class="form-inline">  
+                                    <h6>
+                                    <div class="col-md-3">   
+                                        <div class="form-group">
+                                            
+                                                <label>CURRENT</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" class="form-control">
+                                                <br><br>
+                                        </div>
+                                                <div class="form-group">
+                                            
+                                                <label>120 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" class="form-control">
+                                                <br><br>
+                                        </div>
+                                                <div class="form-group">
+                                            
+                                                <label>LEGAL</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" class="form-control">
+                                                <br><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">   
+                                        <div class="form-group">
+                                            
+                                                <label>30 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$00,00" class="form-control">
+                                                <br><br>
+                                        </div>
+
+                                                <div class="form-group">
+                                                <label>150 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" class="form-control">
+                                                <br><br>
+                                        </div>
+                                                <div class="form-group">
+                                                <label>AGREE</label><br>
+                                                <input type="text" disabled="" placeholder="$3827,15" class="form-control">
+                                                <br><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">   
+                                        <div class="form-group">
+                                            
+                                                <label>60 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" placeholder=".col-md-2" class="form-control">
+                                                <br><br>
+                                        </div>
+                                                <div class="form-group">
+                                            
+                                                <label>180 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" placeholder=".col-md-2" class="form-control">
+                                                <br><br>
+                                        </div>
+                                                <div class="form-group">
+                                            
+                                                <label>NEXT BILL</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" placeholder=".col-md-2" class="form-control">
+                                                <br><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">   
+                                        <div class="form-group">
+                                            
+                                                <label>90 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$90,00" placeholder=".col-md-2" class="form-control">
+                                                <br><br>
+                                        </div>
+                                                <div class="form-group">
+                                            
+                                                <label>210 DAY</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" placeholder=".col-md-2" class="form-control">
+                                                <br><br>
+<!--                                        </div>
+                                                <div class="form-group">
+                                            
+                                                <label>CURRENT</label><br>
+                                                <input type="text" disabled="" placeholder="$0,00" placeholder=".col-md-2" class="form-control">
+                                                <br><br>
+                                        </div> -->
+                                    </div>
+
+                                    </h6>
+                               </form>
+                            </div>
+                           </div>
+                        </div>
+                       </div>
+                    </div>
+
+
+  
+                <div class="row">
+                   <div class="col-lg-9">
+                       <div class="ibox">
+
+                          <div class="ibox-title">
+                             <h5> Dispositions</h5>                           
+                            </div>
+                            <div class="ibox-content">
+                            <div class="row">
+                             <div id="toastTypeGroup">
+                                  <div class="col-md-2">
+                                    <h6>    
+                                    <div class="radio">                                 
+                                        <label>
+                                            <input type="radio" name="toasts" value="success"/>PTP
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="info" />SK
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="warning" />AC
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />DNC
+                                        </label>
+                                    </div>
+                                     <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />LBC
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />LMW
+                                        </label>
+                                    </div> 
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />DB
+                                        </label>
+                                    </div> 
+                                 </div>                         
+                                 
+                                 <div class="col-md-2">  
+                                  <h6>                                     
+                                    <div class="radio">
+                                    
+                                        <label>
+                                            <input type="radio" name="toasts" value="success"/>OND
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="info" />RB
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="warning" />TTD
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />2PN
+                                        </label>
+                                    </div>
+                                     <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />AEA
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />CKD
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />DNR
+                                        </label>
+                                    </div>
+                                    </h6>
+                                </div> 
+                                <div class="col-md-2">  
+                                      <h6>                               
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="toasts" value="success"/>DND
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="info" />LBH
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="warning" />AND
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />LRS
+                                        </label>
+                                    </div>
+                                     <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />PCD
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />RCA
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />LH
+                                        </label>
+                                    </div>
+                                     </h6>
+                                 </div> 
+                                     <div class="col-md-2">  
+                                      <h6>                               
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="toasts" value="success"/>VM
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="info" />2V
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="warning" />AND
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />CPU
+                                        </label>
+                                    </div>
+                                     <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />DNF
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />LBW
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />MPN
+                                        </label>
+                                    </div>
+                                     </h6>
+                                 </div>
+                                   <div class="col-md-2">  
+                                      <h6>                               
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="toasts" value="success"/>MH
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="info" />PIF
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="warning" />RM
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />WNH
+                                        </label>
+                                    </div>
+                                     <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />3DC
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />ATC
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />PMT
+                                        </label>
+                                    </div>
+                                     </h6>
+                                </div>
+                                <div class="col-md-2">  
+                                      <h6>                               
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="toasts" value="success"/>RP
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="info" />WNW
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="warning" />3P
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />BKD
+                                        </label>
+                                    </div>
+                                     <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />DBC
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />FD
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="radio">
+                                            <input type="radio" name="toasts" value="error" />LMC
+                                        </label>
+                                    </div>
+                                     </h6>
+                                </div>                
+                             </div>
+                            <center>
+                                <button type="button" class="btn btn-outline btn-primary">&nbsp;&nbsp;Promise to Pay</button>
+                                <button type="button" class="btn btn-outline btn-success">&nbsp;&nbsp;Change Status</button>
+                                <button type="button" class="btn btn-outline btn-danger">&nbsp;&nbsp;Take Payment</button>
+                                </center>        
+                            </div>                                
+                            </div>                          
+                        </div>
+                    </div> 
+                </div>  
+
+     
+              <div class="row">
+                <div class="col-lg-12">          
+                    <div class="ibox-title">
+                        <small class="pull-right text-muted">Last note:  Mon Jan 26 2015 - 18:39:23</small>
+                         <h3>Post Note</h3>
+                    </div>
+
+                    <div class="ibox-content">
+                        <div class="row">
+                         <div class="col-lg-12">
+
+                           
+                                <div class="chat-discussion">
+
+                                    <div class="chat-message">
+                                    
+                                        <img class="message-avatar" src="{% static 'img/a1.jpg' %}"  alt="" >
+                                        <div class="message">
+                                            <a class="message-author" href="#"> Michael Smith </a>
+                                            <span class="message-date"> Mon Jan 26 2015 - 18:39:23 </span>
+                                            <span class="message-content">
+                                            PMT PAGO HECHO MILAGROS 350.00
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <img class="message-avatar" src="{% static 'img/a4.jpg' %}" alt="" >
+                                        <div class="message">
+                                            <a class="message-author" href="#"> Karl Jordan </a>
+                                            <span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
+                                            <span class="message-content">
+                                            AC ACUERDO DE PAGO MILAGRO
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <img class="message-avatar" src="{% static 'img/a6.jpg' %}" alt="" >
+                                        <div class="message">
+                                            <a class="message-author" href="#"> Mark Smith </a>
+                                            <span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
+                                            <span class="message-content">
+                                            AC ACUERDO DE PAGO MILAGRO
+                                            </span>
+                                        </div>
+                                    </div>
+                                   <div class="chat-message">
+                                        <img class="message-avatar" src="{% static 'img/a6.jpg' %}" alt="" >
+                                        <div class="message">
+                                            <a class="message-author" href="#"> Mark Smith </a>
+                                            <span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
+                                            <span class="message-content">
+                                            AC ACUERDO DE PAGO MILAGRO
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <img class="message-avatar" src="{% static 'img/a6.jpg' %}" alt="" >
+                                        <div class="message">
+                                            <a class="message-author" href="#"> Mark Smith </a>
+                                            <span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
+                                            <span class="message-content">
+                                            SK SKIP TRACE MILAGRO
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="chat-message-form">
+                                    <div class="form-group">
+                                        <textarea class="form-control message-input" name="message" placeholder="Enter message text"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
+               </div>
+       </div>
+
+    {% endif %}
+
+{% endblock contenido %}
+
+{% block script %}
+
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jeditable/jquery.jeditable.js' %}"></script>
+
+    <!-- Flot -->
+    <script src="{% static 'js/plugins/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.spline.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'js/plugins/flot/jquery.flot.pie.js' %}"></script>
+
+    <!-- Peity -->
+    <script src="{% static 'js/plugins/peity/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'js/demo/peity-demo.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+
+    <!-- jQuery UI -->
+    <script src="{% static 'js/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <!-- GITTER -->
+    <script src="{% static 'js/plugins/gritter/jquery.gritter.min.js' %}"></script>
+
+    <!-- Sparkline -->
+    <script src="{% static 'js/plugins/sparkline/jquery.sparkline.min.js' %}"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="{% static 'js/demo/sparkline-demo.js' %}"></script>
+
+    <!-- ChartJS-->
+    <script src="{% static 'js/plugins/chartJs/Chart.min.js' %}"></script>
+
+    <!-- Toastr -->
+    <script src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
+
+    <!-- Data Tables -->
+    <script src="{% static 'js/plugins/dataTables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.responsive.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.tableTools.min.js' %}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $('.dataTables-example').dataTable({
+                responsive: true,
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "{% static 'js/plugins/dataTables/swf/copy_csv_xls_pdf.swf' %}"
+                }
+            });
+
+
+            var data1 = [
+                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
+            ];
+            var data2 = [
+                [0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
+            ];
+            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+                data1, data2
+            ],
+                    {
+                        series: {
+                            lines: {
+                                show: false,
+                                fill: true
+                            },
+                            splines: {
+                                show: true,
+                                tension: 0.4,
+                                lineWidth: 1,
+                                fill: 0.4
+                            },
+                            points: {
+                                radius: 0,
+                                show: true
+                            },
+                            shadowSize: 2
+                        },
+                        grid: {
+                            hoverable: true,
+                            clickable: true,
+                            tickColor: "#d5d5d5",
+                            borderWidth: 1,
+                            color: '#d5d5d5'
+                        },
+                        colors: ["#1ab394", "#464f88"],
+                        xaxis:{
+                        },
+                        yaxis: {
+                            ticks: 4
+                        },
+                        tooltip: false
+                    }
+            );
+
+            var doughnutData = [
+                {
+                    value: 300,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "App"
+                },
+                {
+                    value: 50,
+                    color: "#dedede",
+                    highlight: "#1ab394",
+                    label: "Software"
+                },
+                {
+                    value: 100,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Laptop"
+                }
+            ];
+
+            var doughnutOptions = {
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                percentageInnerCutout: 45, // This is 0 for Pie charts
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+            };
+
+            var ctx = document.getElementById("doughnutChart").getContext("2d");
+            var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
+
+            var polarData = [
+                {
+                    value: 300,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "App"
+                },
+                {
+                    value: 140,
+                    color: "#dedede",
+                    highlight: "#1ab394",
+                    label: "Software"
+                },
+                {
+                    value: 200,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Laptop"
+                }
+            ];
+
+            var polarOptions = {
+                scaleShowLabelBackdrop: true,
+                scaleBackdropColor: "rgba(255,255,255,0.75)",
+                scaleBeginAtZero: true,
+                scaleBackdropPaddingY: 1,
+                scaleBackdropPaddingX: 1,
+                scaleShowLine: true,
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+            };
+            var ctx = document.getElementById("polarChart").getContext("2d");
+            var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
+
+        });
+    </script>
+
+    <style>
+    body.DTTT_Print {
+        background: #fff;
+
+    }
+    .DTTT_Print #page-wrapper {
+        margin: 0;
+        background:#fff;
+    }
+
+    button.DTTT_button, div.DTTT_button, a.DTTT_button {
+        border: 1px solid #e7eaec;
+        background: #fff;
+        color: #676a6c;
+        box-shadow: none;
+        padding: 6px 8px;
+    }
+    button.DTTT_button:hover, div.DTTT_button:hover, a.DTTT_button:hover {
+        border: 1px solid #d2d2d2;
+        background: #fff;
+        color: #676a6c;
+        box-shadow: none;
+        padding: 6px 8px;
+    }
+
+    .dataTables_filter label {
+        margin-right: 5px;
+
+    }
+</style>
+{% endblock script %}

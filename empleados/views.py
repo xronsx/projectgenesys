@@ -147,3 +147,11 @@ def editar_empleado(request, id_emp, template_name = "empleados/editar_empleado.
 		form.fields['fecha'].initial = persona.fecha_admision.strftime("%Y-%m-%d")
 		form.fields['foto'].initial = persona.foto
 	return render(request, template_name, locals(),)
+
+@login_required(login_url = '/login/')
+def queue(request, template_name = "empleados/collect_queue.html"):
+	return render(request, template_name, locals(),)
+
+@login_required(login_url = '/login/')
+def snapshot(request, template_name = "empleados/snapshot.html"):
+	return render(request, template_name, locals(),)

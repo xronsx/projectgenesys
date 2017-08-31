@@ -33,6 +33,8 @@ extra_patterns2 = [
     url(r'^profiles', empleados_views.profiles, name = 'profiles'),
     url(r'^profile/(?P<id_emp>[-A-Za-z0-9_]+)$', empleados_views.profile, name = 'profile'),
     url(r'^editar_empleado/(?P<id_emp>[-A-Za-z0-9_]+)$', empleados_views.editar_empleado, name = 'editar_empleado'),
+    url(r'^queue', empleados_views.queue, name = 'queue'),
+    url(r'^snapshot', empleados_views.snapshot, name = 'snapshot'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [

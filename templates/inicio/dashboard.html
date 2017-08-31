@@ -55,26 +55,135 @@
 
     {% if request.user|has_group:"Administrador" %}
 
-          <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-6">
+                             <div class="ibox-title">
+                                <h5>Avances </h5>
+                             
+                                <div class="pull-right">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-xs btn-white active">Today</button>
+                                        <button type="button" class="btn btn-xs btn-white">Wek</button>
+                                        <button type="button" class="btn btn-xs btn-white">Monthly</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div>
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$1.200</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 60%;" class="progress-bar"></div>
+                                    </div>
+
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$800</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 50%;" class="progress-bar"></div>
+                                    </div>
+
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$600</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 40%;" class="progress-bar"></div>
+                                    </div>
+
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$200</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 20%;" class="progress-bar progress-bar-danger"></div>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+                        
+                <div class="col-lg-6">
+                   <div class="ibox-title">
+                        <h5>Search Debtot </h5>
+                    </div>
+                   
+                    <div class="ibox-content">
+                            <form class="form-horizontal m-t-md" action="#">
+                                <div class="form-group"><label class="col-sm-2 control-label">Account Number</label>
+                                    <div class="col-sm-6"><input type="text" class="form-control">
+                                    </div>                                 
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">                               
+                                    </div>  
+                                    <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>                              
+                                 </div>
+                                </div>
+
+                             
+                               <div class="hr-line-dashed">
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">First Name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control">
+                                   </div>
+                                </div>                               
+                                <div class="form-group"><label class="col-sm-2 control-label">Thru First Name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control">
+                                   </div>
+                                </div>                           
+                                <div class="form-group"><label class="col-sm-2 control-label">Last Name</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control">
+                                   </div>
+                                </div>
+                                                              
+                                 <div class="form-group"><label class="col-sm-2 control-label">Thru Last Name</label>                 
+                                   <div class="col-sm-6"><input type="text" class="form-control">
+                                    
+                                   </div> 
+                                   <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>
+                                 </div>                                                              
+                                
+
+                                <div class="hr-line-dashed">
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">SSN</label>
+                                    <div class="col-sm-6"><input type="text" class="form-control">
+                                    </div>
+                                    <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>
+                                </div>
+
+                                 <div class="hr-line-dashed">
+                                </div>
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Phone</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" data-mask="(9999) 999-9999" placeholder="">
+                                        <span class="help-block">(9999) 999-9999</span>
+                                    </div>
+                                  <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>
+                                     </div>
+                                     <div class="hr-line-dashed">
+                                </div>
+                                <center>
+                                <a href="#">
+                                <button type="button" class="btn btn-block btn-outline btn-primary"><i class="fa fa-table"></i>&nbsp;&nbsp;SnapShot</button>
+                                </center>
+                                </a>
+                            </form>
+                    </div>
+                </div>
+    
+    {% elif user|has_group:"Colector" %}         
+  
             <div class="row">
                 <div class="col-lg-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>Call Queue</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </div>
                     <div class="ibox-content">
 
@@ -83,7 +192,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Queue Name</th>
-                                <th>Collector</th>
+                                <th>Statu</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -122,35 +231,58 @@
                         </table>
                         <center>
                          <h3 class="font-bold"></h3>
-                            <p>
-                            <a href="">
-                             <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Assing Queue</button>
-                            </a>           
-                             <button class="btn btn-success " type="button"><i class="fa fa-eraser"></i>&nbsp;&nbsp;<span class="bold">Clean</span></button>
+                            <p>                                   
+                             <button type="button" class="btn btn-outline btn-success"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Clean</button>
                             </p>
                             </center>
                     </div>
-
                 </div>
+
+
+                             <div class="ibox-title">
+                                <h5>Avances </h5>
+                             </div>
+                            <div class="ibox-content">
+                                <div>
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$1.200</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 60%;" class="progress-bar"></div>
+                                    </div>
+
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$800</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 50%;" class="progress-bar"></div>
+                                    </div>
+
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$600</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 40%;" class="progress-bar"></div>
+                                    </div>
+
+                                    <div>
+                                        <span>Collector Name</span>
+                                        <small class="pull-right">$200</small>
+                                    </div>
+                                    <div class="progress progress-small">
+                                        <div style="width: 20%;" class="progress-bar progress-bar-danger"></div>
+                                    </div>
+                                </div>
+                            </div>
             </div>
-            <div class="col-lg-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+
+                        
+                <div class="col-lg-6">
+                   <div class="ibox-title">
                         <h5>Search Debtot </h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                    
                     <div class="ibox-content">
@@ -161,9 +293,10 @@
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">                               
                                     </div>  
-                                    <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>                              
+                                    <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>                              
                                  </div>
                                 </div>
+
                              
                                <div class="hr-line-dashed">
                                 </div>
@@ -184,7 +317,7 @@
                                    <div class="col-sm-6"><input type="text" class="form-control">
                                     
                                    </div> 
-                                   <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>
+                                   <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>
                                  </div>                                                              
                                 
 
@@ -193,7 +326,7 @@
                                 <div class="form-group"><label class="col-sm-2 control-label">SSN</label>
                                     <div class="col-sm-6"><input type="text" class="form-control">
                                     </div>
-                                    <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>
+                                    <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>
                                 </div>
 
                                  <div class="hr-line-dashed">
@@ -204,24 +337,18 @@
                                         <input type="text" class="form-control" data-mask="(9999) 999-9999" placeholder="">
                                         <span class="help-block">(9999) 999-9999</span>
                                     </div>
-                                  <button class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;Seech</button>
+                                  <button type="button" class="btn btn-outline btn-primary"><i class="fa fa-check"></i>&nbsp;&nbsp;Search</button>
                                      </div>
                                      <div class="hr-line-dashed">
                                 </div>
                                 <center>
-                                <a href="">
-                                <button class="btn btn-primary " type="button"><i class="fa fa-table"></i>&nbsp;SnapShot</button></center>
+                                <a href="#">
+                                <button type="button" class="btn btn-block btn-outline btn-primary"><i class="fa fa-table"></i>&nbsp;&nbsp;SnapShot</button>
+                                </center>
                                 </a>
                             </form>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    
-    {% elif user|has_group:"Colector" %}
-
-        Colector
 
     {% endif %}
 
